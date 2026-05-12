@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ohm's Law — Voltage, Current, and Resistance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All classes, IDs, and animations are prefixed with ohmsLawScope-
+    to avoid clashing with existing embedded styles.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --ohmsLawScope-accent: #4f8cff;
+      --ohmsLawScope-accent-soft: rgba(79, 140, 255, 0.15);
+      --ohmsLawScope-text-main: #222;
+      --ohmsLawScope-text-muted: #555;
+      --ohmsLawScope-border-soft: rgba(0,0,0,0.12);
+      --ohmsLawScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .ohmsLawScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--ohmsLawScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .ohmsLawScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--ohmsLawScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ohmsLawScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .ohmsLawScope-symbol {
+      font-size: clamp(3.2rem, 6vw, 4.2rem);
+      font-weight: 800;
+    }
+
+    .ohmsLawScope-lead {
+      font-size: 1.1rem;
+      color: var(--ohmsLawScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .ohmsLawScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .ohmsLawScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ohmsLawScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .ohmsLawScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--ohmsLawScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .ohmsLawScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .ohmsLawScope-section p {
+      margin-bottom: 0.9rem;
+    }
+
+    .ohmsLawScope-card {
+      background: var(--ohmsLawScope-card-bg);
+      border: 1px solid var(--ohmsLawScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .ohmsLawScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 1.4rem 0;
+      padding: 1.2rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--ohmsLawScope-accent-soft),
+        transparent
+      );
+    }
+
+    .ohmsLawScope-equation span {
+      margin: 0 0.45rem;
+    }
+
+    .ohmsLawScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .ohmsLawScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .ohmsLawScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .ohmsLawScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--ohmsLawScope-border-soft);
+    }
+
+    .ohmsLawScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ohmsLawScope-wrapper">
+    <header class="ohmsLawScope-header">
+      <div>
+        <div class="ohmsLawScope-title">Ohm's Law</div>
+        <div class="ohmsLawScope-lead">
+          <strong>Ohm's Law</strong> defines the fundamental relationship between
+          voltage, current, and resistance in electrical circuits and serves as one
+          of the core principles of electronics and electrical engineering.
+        </div>
+      </div>
+      <div class="ohmsLawScope-symbol">V = IR</div>
+    </header>
+
+    <main class="ohmsLawScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="ohmsLawScope-section">
+          <h2>Statement of the Law</h2>
+          <div class="ohmsLawScope-card">
+            Ohm's Law states that the electric current flowing through a conductor is
+            directly proportional to the voltage across it, provided the temperature
+            and physical conditions remain constant.
+            <div class="ohmsLawScope-equation">
+              <span>V</span>
+              <span>=</span>
+              <span>I</span>
+              <span>×</span>
+              <span>R</span>
+            </div>
+            This relationship allows any one of the three quantities to be calculated
+            when the other two are known.
+          </div>
+        </section>
+
+        <section class="ohmsLawScope-section">
+          <h2>Variables Explained</h2>
+          <ul class="ohmsLawScope-list">
+            <li><strong>Voltage (V)</strong> — electrical potential difference, measured in
+              <a class="ohmsLawScope-link" href="/o/page?o=word&w=Volt">volts</a></li>
+            <li><strong>Current (I)</strong> — rate of electric charge flow, measured in
+              <a class="ohmsLawScope-link" href="/o/page?o=word&w=Ampere">amperes</a></li>
+            <li><strong>Resistance (R)</strong> — opposition to current flow, measured in
+              <a class="ohmsLawScope-link" href="/o/page?o=word&w=Ohm">ohms</a></li>
+          </ul>
+        </section>
+
+        <section class="ohmsLawScope-section">
+          <h2>Alternative Forms</h2>
+          <p>
+            Ohm's Law can be rearranged algebraically to solve for different variables:
+          </p>
+
+          <div class="ohmsLawScope-equation">
+            <span>I</span>
+            <span>=</span>
+            <span>V</span>
+            <span>/</span>
+            <span>R</span>
+          </div>
+
+          <div class="ohmsLawScope-equation">
+            <span>R</span>
+            <span>=</span>
+            <span>V</span>
+            <span>/</span>
+            <span>I</span>
+          </div>
+        </section>
+
+        <section class="ohmsLawScope-section">
+          <h2>Physical Interpretation</h2>
+          <p>
+            Ohm's Law describes how electric charge carriers respond to an applied
+            electric field within a material.
+          </p>
+          <p>
+            A higher voltage increases the force on charges, increasing current,
+            while higher resistance limits charge motion due to material structure,
+            impurities, and temperature effects.
+          </p>
+        </section>
+
+        <section class="ohmsLawScope-section">
+          <h2>Conditions and Limitations</h2>
+          <p>
+            Ohm's Law applies accurately to <strong>ohmic materials</strong>, where
+            resistance remains constant over a wide range of voltages and currents.
+          </p>
+          <p>
+            Many real-world components do not strictly follow Ohm's Law, including:
+          </p>
+          <ul class="ohmsLawScope-list">
+            <li>Diodes and transistors</li>
+            <li>Incandescent lamps</li>
+            <li>Electrolytes and gas discharge tubes</li>
+          </ul>
+          <p>
+            These are examples of
+            <a class="ohmsLawScope-link" href="/o/page?o=word&w=Non-ohmic%20Device">non-ohmic devices</a>.
+          </p>
+        </section>
+
+        <section class="ohmsLawScope-section">
+          <h2>Relation to Electrical Power</h2>
+          <p>
+            Combined with power equations, Ohm's Law allows calculation of energy
+            dissipation in resistive circuits:
+          </p>
+
+          <div class="ohmsLawScope-equation">
+            <span>P</span>
+            <span>=</span>
+            <span>V</span>
+            <span>×</span>
+            <span>I</span>
+          </div>
+
+          <div class="ohmsLawScope-equation">
+            <span>P</span>
+            <span>=</span>
+            <span>I²</span>
+            <span>×</span>
+            <span>R</span>
+          </div>
+        </section>
+
+        <section class="ohmsLawScope-section">
+          <h2>Historical Background</h2>
+          <p>
+            Ohm's Law is named after German physicist
+            <strong>Georg Simon Ohm</strong> (1789–1854), who published his findings in
+            1827 after extensive experimentation with electrical circuits.
+          </p>
+          <p>
+            Although initially criticized, the law became a cornerstone of classical
+            circuit theory and modern electronics.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="ohmsLawScope-card">
+          <h3>Quick Reference</h3>
+          <div class="ohmsLawScope-fact">
+            <span>Core equation</span>
+            <span>V = IR</span>
+          </div>
+          <div class="ohmsLawScope-fact">
+            <span>Applies to</span>
+            <span>Ohmic materials</span>
+          </div>
+          <div class="ohmsLawScope-fact">
+            <span>Published</span>
+            <span>1827</span>
+          </div>
+          <div class="ohmsLawScope-fact">
+            <span>Field</span>
+            <span>Electrical engineering</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No runtime behavior required
+    })();
+  </script>
+</body>
+</html>
