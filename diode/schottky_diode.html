@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Schottky Diodes</title>
+<style>
+/* Unique scoped styles */
+.schotx-wrapper {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.schotx-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.schotx-header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.schotx-symbol {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.schotx-section {
+    margin-bottom: 45px;
+}
+
+.schotx-section h2 {
+    font-size: 1.6em;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+.schotx-bold {
+    font-weight: bold;
+}
+
+.schotx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.schotx-card {
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.schotx-equation {
+    font-family: "Courier New", monospace;
+    font-size: 1.05em;
+    padding: 12px;
+    margin: 12px 0;
+    border-left: 4px solid #444;
+}
+
+.schotx-diagram {
+    font-family: monospace;
+    white-space: pre;
+    margin: 15px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="schotx-wrapper">
+
+    <div class="schotx-header">
+        <h1>Schottky Diodes</h1>
+        <div class="schotx-symbol">Symbol: ➤| (low V<sub>F</sub>)</div>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Overview</h2>
+        <p>
+            A <span class="schotx-bold">Schottky diode</span> is a semiconductor diode 
+            known for its low forward voltage drop and extremely fast switching speed.
+        </p>
+        <p>
+            Unlike conventional <a href="/o/page?o=word&w=Diodes">diodes</a>, 
+            Schottky diodes are formed using a metal–semiconductor junction 
+            instead of a traditional p-n junction.
+        </p>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Construction</h2>
+        <p>
+            Schottky diodes are made by joining a metal (such as aluminum or platinum) 
+            with n-type semiconductor material, forming a 
+            <span class="schotx-bold">Schottky barrier</span>.
+        </p>
+        <p>
+            Because there is no p-type region, there is no charge storage effect 
+            like in standard p-n junction diodes.
+        </p>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Electrical Characteristics</h2>
+        <ul>
+            <li><strong>Forward Voltage Drop:</strong> ~0.2V to 0.4V (lower than silicon diode)</li>
+            <li><strong>Fast Switching Speed:</strong> Very low reverse recovery time</li>
+            <li><strong>Higher Reverse Leakage Current:</strong> Compared to p-n diodes</li>
+            <li><strong>Lower Reverse Voltage Ratings:</strong> Typically under 200V</li>
+        </ul>
+
+        <div class="schotx-equation">
+P = V × I
+        </div>
+
+        <p>
+            Lower forward voltage reduces power loss in circuits, improving efficiency.
+        </p>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Forward Voltage Comparison</h2>
+        <div class="schotx-diagram">
+Standard Silicon Diode: ~0.7V
+Schottky Diode:         ~0.3V
+        </div>
+        <p>
+            The reduced forward voltage makes Schottky diodes ideal for 
+            low-voltage applications.
+        </p>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Applications</h2>
+        <div class="schotx-grid">
+            <div class="schotx-card">
+                <strong>Switching Power Supplies</strong><br>
+                High-speed rectification
+            </div>
+            <div class="schotx-card">
+                <strong>DC-DC Converters</strong><br>
+                Improved efficiency
+            </div>
+            <div class="schotx-card">
+                <strong>Solar Panels</strong><br>
+                Prevent reverse current flow
+            </div>
+            <div class="schotx-card">
+                <strong>RF Applications</strong><br>
+                Signal detection
+            </div>
+        </div>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Advantages</h2>
+        <ul>
+            <li>Low power dissipation</li>
+            <li>High efficiency</li>
+            <li>Very fast switching</li>
+            <li>Reduced heat generation</li>
+        </ul>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Disadvantages</h2>
+        <ul>
+            <li>Higher reverse leakage current</li>
+            <li>Lower maximum reverse voltage</li>
+            <li>More temperature-sensitive</li>
+        </ul>
+    </div>
+
+    <div class="schotx-section">
+        <h2>Measurement and Testing</h2>
+        <p>
+            A Schottky diode can be tested using a 
+            <a href="/o/page?o=word&w=Digital%20Multimeters">digital multimeter</a> 
+            in diode mode.
+        </p>
+        <p>
+            Forward voltage drop is measured in 
+            <a href="/o/page?o=word&w=Volts">volts</a>, 
+            and current ratings are specified in 
+            <a href="/o/page?o=word&w=Amperes">amperes</a>.
+        </p>
+        <p>
+            Like other semiconductor devices, Schottky diodes are 
+            <a href="/o/page?o=word&w=Non-Ohmic%20Devices">non-ohmic devices</a> 
+            and do not follow a linear form of 
+            <a href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
