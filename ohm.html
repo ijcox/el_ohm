@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Ohm (Ω) — Electrical Resistance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All classes, IDs, and animations are prefixed with ohmScope-
+    to avoid clashing with existing embedded styles.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --ohmScope-accent: #4f8cff;
+      --ohmScope-accent-soft: rgba(79, 140, 255, 0.15);
+      --ohmScope-text-main: #222;
+      --ohmScope-text-muted: #555;
+      --ohmScope-border-soft: rgba(0,0,0,0.12);
+      --ohmScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .ohmScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--ohmScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .ohmScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--ohmScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ohmScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .ohmScope-symbol {
+      font-size: clamp(3.2rem, 6vw, 4.2rem);
+      font-weight: 800;
+    }
+
+    .ohmScope-lead {
+      font-size: 1.1rem;
+      color: var(--ohmScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .ohmScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .ohmScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ohmScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .ohmScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--ohmScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .ohmScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .ohmScope-section p {
+      margin-bottom: 0.9rem;
+    }
+
+    .ohmScope-card {
+      background: var(--ohmScope-card-bg);
+      border: 1px solid var(--ohmScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .ohmScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin: 1.4rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--ohmScope-accent-soft),
+        transparent
+      );
+    }
+
+    .ohmScope-equation span {
+      margin: 0 0.45rem;
+    }
+
+    .ohmScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .ohmScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .ohmScope-sidebox h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .ohmScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--ohmScope-border-soft);
+    }
+
+    .ohmScope-fact:last-child {
+      border-bottom: none;
+    }
+
+    .ohmScope-diagram {
+      margin-top: 1.3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ohmScope-svg {
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .ohmScope-svg text {
+      font-family: inherit;
+      fill: var(--ohmScope-text-main);
+    }
+
+    .ohmScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ohmScope-wrapper">
+    <header class="ohmScope-header">
+      <div>
+        <div class="ohmScope-title">Ohm</div>
+        <div class="ohmScope-lead">
+          The <strong>ohm</strong> is the SI derived unit of
+          <strong>electrical resistance</strong>, describing how strongly a material,
+          component, or circuit opposes the flow of electric current.
+        </div>
+      </div>
+      <div class="ohmScope-symbol">Ω</div>
+    </header>
+
+    <main class="ohmScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="ohmScope-section">
+          <h2>Formal Definition</h2>
+          <div class="ohmScope-card">
+            One <strong>ohm</strong> is defined as the electrical resistance between two
+            points of a conductor when a constant potential difference of one volt
+            results in a current of one ampere.
+            <div class="ohmScope-equation">
+              <span>1 Ω</span>
+              <span>=</span>
+              <span>1 V</span>
+              <span>/</span>
+              <span>1 A</span>
+            </div>
+            This definition directly follows from
+            <a class="ohmScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>,
+            which governs the behavior of ideal resistive elements.
+          </div>
+        </section>
+
+        <section class="ohmScope-section">
+          <h2>Mathematical Relationships</h2>
+          <p>
+            The <strong>ohm</strong> connects voltage, current, power, and energy
+            dissipation within electrical systems.
+          </p>
+
+          <div class="ohmScope-equation">
+            <span>V</span>
+            <span>=</span>
+            <span>I</span>
+            <span>×</span>
+            <span>R</span>
+          </div>
+
+          <ul class="ohmScope-list">
+            <li>Resistance: <strong>R</strong> (ohms, Ω)</li>
+            <li>Voltage: <strong>V</strong> (volts)</li>
+            <li>Current: <strong>I</strong> (amperes)</li>
+          </ul>
+
+          <p>
+            Combined with power equations, resistance also determines heat generation
+            in a conductor:
+          </p>
+
+          <div class="ohmScope-equation">
+            <span>P</span>
+            <span>=</span>
+            <span>I²</span>
+            <span>×</span>
+            <span>R</span>
+          </div>
+        </section>
+
+        <section class="ohmScope-section">
+          <h2>Physical Meaning of Resistance</h2>
+          <p>
+            Resistance measured in <strong>ohms</strong> represents how charge carriers
+            (typically electrons) interact with the atomic structure of a material.
+          </p>
+          <p>
+            In metals, resistance arises primarily from electron scattering due to
+            lattice vibrations and impurities. In semiconductors and insulators, the
+            band structure plays a dominant role.
+          </p>
+
+          <h3>Low vs. High Resistance</h3>
+          <ul class="ohmScope-list">
+            <li><strong>Low resistance</strong> (milliohms to a few ohms): wires, bus bars</li>
+            <li><strong>Moderate resistance</strong> (tens to thousands of ohms): resistors</li>
+            <li><strong>High resistance</strong> (megaohms and above): insulators, leakage paths</li>
+          </ul>
+        </section>
+
+        <section class="ohmScope-section">
+          <h2>Equivalent Resistances</h2>
+          <p>
+            When multiple resistive elements are combined, the resulting resistance in
+            <strong>ohms</strong> depends on their configuration.
+          </p>
+
+          <h3>Series Connection</h3>
+          <div class="ohmScope-equation">
+            <span>R<sub>total</sub></span>
+            <span>=</span>
+            <span>R₁</span>
+            <span>+</span>
+            <span>R₂</span>
+            <span>+ …</span>
+          </div>
+
+          <h3>Parallel Connection</h3>
+          <div class="ohmScope-equation">
+            <span>1 / R<sub>total</sub></span>
+            <span>=</span>
+            <span>1 / R₁</span>
+            <span>+</span>
+            <span>1 / R₂</span>
+            <span>+ …</span>
+          </div>
+        </section>
+
+        <section class="ohmScope-section">
+          <h2>Measurement of Ohms</h2>
+          <p>
+            Resistance is commonly measured using an
+            <a class="ohmScope-link" href="/o/page?o=word&w=Ohmmeter">ohmmeter</a>,
+            a function found in most digital multimeters.
+          </p>
+          <p>
+            Accurate measurement requires the circuit to be de-energized, as external
+            voltages can distort resistance readings.
+          </p>
+        </section>
+
+        <section class="ohmScope-section">
+          <h2>Historical Background</h2>
+          <p>
+            The <strong>ohm</strong> is named after German physicist
+            <strong>Georg Simon Ohm</strong> (1789–1854), who published his findings on
+            electrical conduction in 1827.
+          </p>
+          <p>
+            Although initially controversial, Ohm’s work became foundational to
+            circuit theory and modern electrical engineering.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="ohmScope-card ohmScope-sidebox">
+          <h3>Quick Facts</h3>
+          <div class="ohmScope-fact">
+            <span>SI unit symbol</span>
+            <span>Ω</span>
+          </div>
+          <div class="ohmScope-fact">
+            <span>Derived from</span>
+            <span>Volt / Ampere</span>
+          </div>
+          <div class="ohmScope-fact">
+            <span>Named after</span>
+            <span>Georg S. Ohm</span>
+          </div>
+          <div class="ohmScope-fact">
+            <span>Dimension</span>
+            <span>M L² T⁻³ I⁻²</span>
+          </div>
+        </div>
+
+        <div class="ohmScope-card">
+          <h3>Basic Circuit Example</h3>
+          <div class="ohmScope-diagram">
+            <svg class="ohmScope-svg" viewBox="0 0 280 170" aria-label="Simple resistor circuit diagram">
+              <line x1="30" y1="85" x2="100" y2="85" stroke="black" stroke-width="2"/>
+              <rect x="100" y="65" width="80" height="40" fill="none" stroke="black" stroke-width="2"/>
+              <line x1="180" y1="85" x2="250" y2="85" stroke="black" stroke-width="2"/>
+              <text x="140" y="55" text-anchor="middle" font-size="14">R (Ω)</text>
+              <circle cx="30" cy="85" r="4" fill="black"/>
+              <circle cx="250" cy="85" r="4" fill="black"/>
+            </svg>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No runtime behavior required
+    })();
+  </script>
+</body>
+</html>
