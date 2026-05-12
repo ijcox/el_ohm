@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ohmmeter — Measuring Electrical Resistance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All classes, IDs, and animations are prefixed with ohmmeterScope-
+    to avoid clashing with existing embedded styles.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --ohmmeterScope-accent: #4f8cff;
+      --ohmmeterScope-accent-soft: rgba(79, 140, 255, 0.15);
+      --ohmmeterScope-text-main: #222;
+      --ohmmeterScope-text-muted: #555;
+      --ohmmeterScope-border-soft: rgba(0,0,0,0.12);
+      --ohmmeterScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .ohmmeterScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--ohmmeterScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .ohmmeterScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--ohmmeterScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ohmmeterScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .ohmmeterScope-symbol {
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 800;
+    }
+
+    .ohmmeterScope-lead {
+      font-size: 1.1rem;
+      color: var(--ohmmeterScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .ohmmeterScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .ohmmeterScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ohmmeterScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .ohmmeterScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--ohmmeterScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .ohmmeterScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .ohmmeterScope-section p {
+      margin-bottom: 0.9rem;
+    }
+
+    .ohmmeterScope-card {
+      background: var(--ohmmeterScope-card-bg);
+      border: 1px solid var(--ohmmeterScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .ohmmeterScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1.3rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--ohmmeterScope-accent-soft),
+        transparent
+      );
+    }
+
+    .ohmmeterScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .ohmmeterScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .ohmmeterScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .ohmmeterScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--ohmmeterScope-border-soft);
+    }
+
+    .ohmmeterScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ohmmeterScope-wrapper">
+    <header class="ohmmeterScope-header">
+      <div>
+        <div class="ohmmeterScope-title">Ohmmeter</div>
+        <div class="ohmmeterScope-lead">
+          An <strong>ohmmeter</strong> is an electrical measuring instrument used to
+          determine the resistance of a component or circuit, expressed in
+          <a class="ohmmeterScope-link" href="/o/page?o=word&w=Ohm">ohms</a>.
+        </div>
+      </div>
+      <div class="ohmmeterScope-symbol">Ω</div>
+    </header>
+
+    <main class="ohmmeterScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="ohmmeterScope-section">
+          <h2>Purpose and Function</h2>
+          <div class="ohmmeterScope-card">
+            An ohmmeter measures how strongly a component resists the flow of electric
+            current. It is commonly used to test resistors, verify circuit continuity,
+            and diagnose faults such as open or short circuits.
+          </div>
+        </section>
+
+        <section class="ohmmeterScope-section">
+          <h2>How an Ohmmeter Works</h2>
+          <p>
+            An ohmmeter operates by applying a small internal voltage to the component
+            under test and measuring the resulting current.
+          </p>
+
+          <div class="ohmmeterScope-equation">
+            Resistance = V / I
+          </div>
+
+          <p>
+            Using the principles of
+            <a class="ohmmeterScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>,
+            the instrument calculates resistance based on the measured current.
+          </p>
+        </section>
+
+        <section class="ohmmeterScope-section">
+          <h2>Types of Ohmmeters</h2>
+
+          <h3>Series Ohmmeter</h3>
+          <p>
+            Uses an internal battery and measures current through the unknown
+            resistance. Common in analog meters.
+          </p>
+
+          <h3>Shunt Ohmmeter</h3>
+          <p>
+            Places the unknown resistance in parallel and is useful for measuring low
+            resistances.
+          </p>
+
+          <h3>Digital Ohmmeter</h3>
+          <p>
+            Found in modern
+            <a class="ohmmeterScope-link" href="/o/page?o=word&w=Multimeter">digital multimeters</a>,
+            offering high accuracy, auto-ranging, and digital displays.
+          </p>
+        </section>
+
+        <section class="ohmmeterScope-section">
+          <h2>Measurement Ranges</h2>
+          <p>
+            Ohmmeters typically support multiple ranges, from milliohms (mΩ) to
+            megaohms (MΩ), allowing measurement of both conductors and insulators.
+          </p>
+          <ul class="ohmmeterScope-list">
+            <li>Low resistance: wires, contacts</li>
+            <li>Medium resistance: discrete resistors</li>
+            <li>High resistance: insulation, leakage paths</li>
+          </ul>
+        </section>
+
+        <section class="ohmmeterScope-section">
+          <h2>Proper Usage</h2>
+          <p>
+            To obtain accurate readings, the circuit under test must be
+            <strong>de-energized</strong>.
+          </p>
+          <ul class="ohmmeterScope-list">
+            <li>Disconnect power sources before measurement</li>
+            <li>Discharge capacitors</li>
+            <li>Isolate the component if possible</li>
+          </ul>
+        </section>
+
+        <section class="ohmmeterScope-section">
+          <h2>Limitations</h2>
+          <p>
+            Ohmmeters assume linear resistance behavior and may give misleading
+            results when used on
+            <a class="ohmmeterScope-link" href="/o/page?o=word&w=Non-ohmic%20Device">non-ohmic devices</a>
+            such as diodes or transistors.
+          </p>
+          <p>
+            Temperature changes and contact resistance can also affect accuracy.
+          </p>
+        </section>
+
+        <section class="ohmmeterScope-section">
+          <h2>Historical Development</h2>
+          <p>
+            Early ohmmeters were analog instruments developed alongside the formal
+            definition of the
+            <a class="ohmmeterScope-link" href="/o/page?o=word&w=Ohm">ohm</a>
+            in the 19th century.
+          </p>
+          <p>
+            Modern digital ohmmeters use precision analog-to-digital converters and
+            microcontrollers for improved accuracy and usability.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="ohmmeterScope-card">
+          <h3>Quick Reference</h3>
+          <div class="ohmmeterScope-fact">
+            <span>Measures</span>
+            <span>Resistance</span>
+          </div>
+          <div class="ohmmeterScope-fact">
+            <span>Unit</span>
+            <span>Ohm (Ω)</span>
+          </div>
+          <div class="ohmmeterScope-fact">
+            <span>Requires power off?</span>
+            <span>Yes</span>
+          </div>
+          <div class="ohmmeterScope-fact">
+            <span>Common form</span>
+            <span>Digital multimeter</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No runtime behavior required
+    })();
+  </script>
+</body>
+</html>
