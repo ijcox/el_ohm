@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Volt — Unit of Electric Potential Difference</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All identifiers are prefixed with voltScope-
+    to avoid style collisions when embedded.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --voltScope-accent: #ff9f43;
+      --voltScope-accent-soft: rgba(255, 159, 67, 0.18);
+      --voltScope-text-main: #222;
+      --voltScope-text-muted: #555;
+      --voltScope-border-soft: rgba(0,0,0,0.12);
+      --voltScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .voltScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--voltScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .voltScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--voltScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .voltScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .voltScope-symbol {
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 800;
+    }
+
+    .voltScope-lead {
+      font-size: 1.1rem;
+      color: var(--voltScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .voltScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .voltScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .voltScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .voltScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--voltScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .voltScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .voltScope-card {
+      background: var(--voltScope-card-bg);
+      border: 1px solid var(--voltScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .voltScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1.3rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--voltScope-accent-soft),
+        transparent
+      );
+    }
+
+    .voltScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .voltScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .voltScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .voltScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--voltScope-border-soft);
+    }
+
+    .voltScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="voltScope-wrapper">
+    <header class="voltScope-header">
+      <div>
+        <div class="voltScope-title">Volt</div>
+        <div class="voltScope-lead">
+          The <strong>volt</strong> (symbol: <strong>V</strong>) is the SI unit of
+          electric potential difference, electric potential, and electromotive force.
+          It describes how much energy is available to move electric charge.
+        </div>
+      </div>
+      <div class="voltScope-symbol">V</div>
+    </header>
+
+    <main class="voltScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="voltScope-section">
+          <h2>Definition</h2>
+          <div class="voltScope-card">
+            One volt is defined as the electric potential difference between two points
+            when one joule of energy is transferred per coulomb of electric charge.
+            <div class="voltScope-equation">
+              1&nbsp;V = 1&nbsp;J / 1&nbsp;C
+            </div>
+          </div>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>Physical Meaning</h2>
+          <p>
+            Voltage represents electrical “pressure” that pushes electric charges
+            through a circuit. A higher voltage means more energy is available to
+            drive current.
+          </p>
+          <p>
+            While voltage enables current flow, current only flows when a complete
+            circuit exists and resistance allows it.
+          </p>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>Relation to Other Electrical Quantities</h2>
+          <p>
+            Voltage is directly related to current and resistance through
+            <a class="voltScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>.
+          </p>
+          <div class="voltScope-equation">
+            V = I × R
+          </div>
+          <p>
+            Where <strong>I</strong> is current in
+            <a class="voltScope-link" href="/o/page?o=word&w=Ampere">amperes</a>
+            and <strong>R</strong> is resistance in
+            <a class="voltScope-link" href="/o/page?o=word&w=Ohm">ohms</a>.
+          </p>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>Measurement</h2>
+          <p>
+            Voltage is measured using a voltmeter or a
+            <a class="voltScope-link" href="/o/page?o=word&w=Digital%20Multimeter">digital multimeter</a>.
+          </p>
+          <p>
+            Voltmeters are connected in parallel with the component or section of
+            the circuit being measured.
+          </p>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>AC and DC Voltage</h2>
+          <h3>Direct Current (DC)</h3>
+          <p>
+            DC voltage has a constant polarity and magnitude, commonly supplied by
+            batteries and power supplies.
+          </p>
+
+          <h3>Alternating Current (AC)</h3>
+          <p>
+            AC voltage periodically reverses direction and varies in magnitude,
+            as used in household and industrial power systems.
+          </p>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>Common Voltage Levels</h2>
+          <ul class="voltScope-list">
+            <li>1.5 V — standard AA/AAA battery</li>
+            <li>5 V — USB power</li>
+            <li>12 V — automotive electrical systems</li>
+            <li>120 V / 230 V — household mains (region-dependent)</li>
+          </ul>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>Historical Background</h2>
+          <p>
+            The volt is named after <strong>Alessandro Volta</strong>, an Italian
+            physicist who invented the first electric battery, the voltaic pile.
+          </p>
+          <p>
+            The unit was officially adopted as part of the International System of
+            Units (SI) in the 20th century.
+          </p>
+        </section>
+
+        <section class="voltScope-section">
+          <h2>Safety Considerations</h2>
+          <p>
+            High voltages can pose serious safety hazards, including electric shock
+            and arcing.
+          </p>
+          <p>
+            Safety standards classify voltage levels and environments to reduce risk
+            when working with electrical systems.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="voltScope-card">
+          <h3>Quick Facts</h3>
+          <div class="voltScope-fact">
+            <span>SI unit</span>
+            <span>Volt (V)</span>
+          </div>
+          <div class="voltScope-fact">
+            <span>Measures</span>
+            <span>Electric potential</span>
+          </div>
+          <div class="voltScope-fact">
+            <span>Named after</span>
+            <span>Alessandro Volta</span>
+          </div>
+          <div class="voltScope-fact">
+            <span>Measured with</span>
+            <span>Voltmeter / DMM</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactivity
+    (function () {
+      // No active logic required
+    })();
+  </script>
+</body>
+</html>
