@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Non-Ohmic Devices — Nonlinear Electrical Behavior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All classes, IDs, and animations are prefixed with nonOhmicScope-
+    to avoid clashing with existing embedded styles.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --nonOhmicScope-accent: #4f8cff;
+      --nonOhmicScope-accent-soft: rgba(79, 140, 255, 0.15);
+      --nonOhmicScope-text-main: #222;
+      --nonOhmicScope-text-muted: #555;
+      --nonOhmicScope-border-soft: rgba(0,0,0,0.12);
+      --nonOhmicScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .nonOhmicScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--nonOhmicScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .nonOhmicScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--nonOhmicScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .nonOhmicScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nonOhmicScope-symbol {
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 800;
+    }
+
+    .nonOhmicScope-lead {
+      font-size: 1.1rem;
+      color: var(--nonOhmicScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .nonOhmicScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .nonOhmicScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .nonOhmicScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .nonOhmicScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--nonOhmicScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .nonOhmicScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .nonOhmicScope-section p {
+      margin-bottom: 0.9rem;
+    }
+
+    .nonOhmicScope-card {
+      background: var(--nonOhmicScope-card-bg);
+      border: 1px solid var(--nonOhmicScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .nonOhmicScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1.4rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--nonOhmicScope-accent-soft),
+        transparent
+      );
+    }
+
+    .nonOhmicScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .nonOhmicScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .nonOhmicScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .nonOhmicScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--nonOhmicScope-border-soft);
+    }
+
+    .nonOhmicScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nonOhmicScope-wrapper">
+    <header class="nonOhmicScope-header">
+      <div>
+        <div class="nonOhmicScope-title">Non-Ohmic Devices</div>
+        <div class="nonOhmicScope-lead">
+          <strong>Non-ohmic devices</strong> are electrical components whose
+          voltage–current relationship does not follow
+          <a class="nonOhmicScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>,
+          meaning their resistance is not constant.
+        </div>
+      </div>
+      <div class="nonOhmicScope-symbol">V ≠ IR</div>
+    </header>
+
+    <main class="nonOhmicScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="nonOhmicScope-section">
+          <h2>What Makes a Device Non-Ohmic?</h2>
+          <div class="nonOhmicScope-card">
+            A device is considered <strong>non-ohmic</strong> when the ratio of voltage
+            to current changes as operating conditions vary.
+            <p>
+              This usually occurs because the material properties, temperature, or
+              internal electric fields change with applied voltage or current.
+            </p>
+          </div>
+        </section>
+
+        <section class="nonOhmicScope-section">
+          <h2>Voltage–Current Characteristics</h2>
+          <p>
+            Non-ohmic devices exhibit a <strong>nonlinear</strong> current–voltage (I–V)
+            curve rather than a straight line.
+          </p>
+
+          <div class="nonOhmicScope-equation">
+            Resistance = V / I (not constant)
+          </div>
+
+          <p>
+            Because resistance varies, a single resistance value in
+            <a class="nonOhmicScope-link" href="/o/page?o=word&w=Ohm">ohms</a>
+            cannot fully describe the device.
+          </p>
+        </section>
+
+        <section class="nonOhmicScope-section">
+          <h2>Common Examples</h2>
+
+          <h3>Semiconductor Devices</h3>
+          <ul class="nonOhmicScope-list">
+            <li>
+              <a class="nonOhmicScope-link" href="/o/page?o=word&w=Diode">Diodes</a> —
+              conduct primarily in one direction
+            </li>
+            <li>
+              <a class="nonOhmicScope-link" href="/o/page?o=word&w=Transistor">Transistors</a> —
+              current controlled by voltage or current at another terminal
+            </li>
+            <li>
+              <a class="nonOhmicScope-link" href="/o/page?o=word&w=LED">Light-emitting diodes (LEDs)</a>
+            </li>
+          </ul>
+
+          <h3>Temperature-Dependent Devices</h3>
+          <ul class="nonOhmicScope-list">
+            <li>
+              <a class="nonOhmicScope-link" href="/o/page?o=word&w=Thermistor">Thermistors</a>
+              (NTC and PTC)
+            </li>
+            <li>Incandescent lamp filaments</li>
+          </ul>
+
+          <h3>Other Examples</h3>
+          <ul class="nonOhmicScope-list">
+            <li>Electrolytic cells</li>
+            <li>Gas discharge tubes</li>
+            <li>Varistors</li>
+          </ul>
+        </section>
+
+        <section class="nonOhmicScope-section">
+          <h2>Why Ohm's Law Fails</h2>
+          <p>
+            <a class="nonOhmicScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>
+            assumes a constant resistance, which is only valid for
+            <strong>ohmic materials</strong>.
+          </p>
+          <p>
+            In non-ohmic devices, resistance may change due to:
+          </p>
+          <ul class="nonOhmicScope-list">
+            <li>Temperature rise caused by current flow</li>
+            <li>Electric field–dependent carrier mobility</li>
+            <li>Charge carrier generation or recombination</li>
+            <li>Material phase changes</li>
+          </ul>
+        </section>
+
+        <section class="nonOhmicScope-section">
+          <h2>Graphical Interpretation</h2>
+          <p>
+            On a voltage–current graph:
+          </p>
+          <ul class="nonOhmicScope-list">
+            <li>Ohmic devices produce a straight line through the origin</li>
+            <li>Non-ohmic devices produce curved or segmented plots</li>
+          </ul>
+          <p>
+            The slope of the curve at any point represents the
+            <strong>dynamic (differential) resistance</strong>.
+          </p>
+        </section>
+
+        <section class="nonOhmicScope-section">
+          <h2>Engineering Importance</h2>
+          <p>
+            Non-ohmic devices form the foundation of modern electronics, enabling:
+          </p>
+          <ul class="nonOhmicScope-list">
+            <li>Signal amplification</li>
+            <li>Rectification and switching</li>
+            <li>Voltage regulation</li>
+            <li>Sensing and control systems</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="nonOhmicScope-card">
+          <h3>Quick Reference</h3>
+          <div class="nonOhmicScope-fact">
+            <span>Resistance</span>
+            <span>Variable</span>
+          </div>
+          <div class="nonOhmicScope-fact">
+            <span>I–V relationship</span>
+            <span>Nonlinear</span>
+          </div>
+          <div class="nonOhmicScope-fact">
+            <span>Obeys Ohm's Law?</span>
+            <span>No</span>
+          </div>
+          <div class="nonOhmicScope-fact">
+            <span>Key fields</span>
+            <span>Electronics, physics</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No runtime behavior required
+    })();
+  </script>
+</body>
+</html>
