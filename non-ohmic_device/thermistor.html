@@ -1,0 +1,295 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thermistor — Temperature-Sensitive Resistor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All identifiers are prefixed with thermScope-
+    to avoid style collisions when embedded.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --thermScope-accent: #e74c3c;
+      --thermScope-accent-soft: rgba(231, 76, 60, 0.18);
+      --thermScope-text-main: #222;
+      --thermScope-text-muted: #555;
+      --thermScope-border-soft: rgba(0,0,0,0.12);
+      --thermScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .thermScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--thermScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .thermScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--thermScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .thermScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .thermScope-symbol {
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      font-weight: 800;
+    }
+
+    .thermScope-lead {
+      font-size: 1.1rem;
+      color: var(--thermScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .thermScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .thermScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .thermScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .thermScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--thermScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .thermScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .thermScope-card {
+      background: var(--thermScope-card-bg);
+      border: 1px solid var(--thermScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .thermScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.3rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--thermScope-accent-soft),
+        transparent
+      );
+    }
+
+    .thermScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .thermScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .thermScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .thermScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--thermScope-border-soft);
+    }
+
+    .thermScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="thermScope-wrapper">
+    <header class="thermScope-header">
+      <div>
+        <div class="thermScope-title">Thermistor</div>
+        <div class="thermScope-lead">
+          A <strong>thermistor</strong> is a temperature-sensitive resistor whose
+          resistance changes significantly with temperature. It is widely used for
+          temperature sensing, control, and circuit protection.
+        </div>
+      </div>
+      <div class="thermScope-symbol">R(T)</div>
+    </header>
+
+    <main class="thermScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="thermScope-section">
+          <h2>Basic Principle</h2>
+          <div class="thermScope-card">
+            Thermistors are made from semiconductor materials whose resistance varies
+            predictably with temperature.
+          </div>
+          <p>
+            Unlike ordinary resistors, thermistors are
+            <a class="thermScope-link" href="/o/page?o=word&w=Non-ohmic%20Device">non-ohmic devices</a>,
+            meaning their resistance does not remain constant.
+          </p>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Main Types</h2>
+
+          <h3>NTC (Negative Temperature Coefficient)</h3>
+          <p>
+            Resistance decreases as temperature increases.
+          </p>
+
+          <h3>PTC (Positive Temperature Coefficient)</h3>
+          <p>
+            Resistance increases as temperature increases.
+          </p>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Resistance–Temperature Relationship</h2>
+          <p>
+            The resistance of an NTC thermistor is commonly approximated by:
+          </p>
+          <div class="thermScope-equation">
+            R = R₀ · e<sup>β(1/T − 1/T₀)</sup>
+          </div>
+          <p>
+            Where R is resistance at temperature T (in kelvin), and β is a material
+            constant.
+          </p>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Applications</h2>
+          <ul class="thermScope-list">
+            <li>Temperature measurement and monitoring</li>
+            <li>Battery pack temperature sensing</li>
+            <li>Inrush current limiting (NTC)</li>
+            <li>Overcurrent protection (PTC resettable fuses)</li>
+            <li>HVAC and appliance control systems</li>
+          </ul>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Thermistors in Circuits</h2>
+          <p>
+            Thermistors are often used in voltage divider circuits to convert
+            temperature changes into measurable voltage changes.
+          </p>
+          <p>
+            Circuit analysis typically uses
+            <a class="thermScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>
+            along with the thermistor’s temperature-resistance curve.
+          </p>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Advantages and Limitations</h2>
+          <h3>Advantages</h3>
+          <ul class="thermScope-list">
+            <li>High sensitivity</li>
+            <li>Low cost</li>
+            <li>Small size</li>
+          </ul>
+
+          <h3>Limitations</h3>
+          <ul class="thermScope-list">
+            <li>Non-linear response</li>
+            <li>Limited temperature range</li>
+            <li>Self-heating effects</li>
+          </ul>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Measurement and Testing</h2>
+          <p>
+            Thermistors can be tested using a
+            <a class="thermScope-link" href="/o/page?o=word&w=Digital%20Multimeter">digital multimeter</a>
+            by measuring resistance and comparing it to expected values at a known
+            temperature.
+          </p>
+        </section>
+
+        <section class="thermScope-section">
+          <h2>Comparison with Other Sensors</h2>
+          <p>
+            Thermistors differ from RTDs and thermocouples in response curve,
+            sensitivity, and operating range.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="thermScope-card">
+          <h3>Quick Facts</h3>
+          <div class="thermScope-fact">
+            <span>Device type</span>
+            <span>Temperature-sensitive resistor</span>
+          </div>
+          <div class="thermScope-fact">
+            <span>Main types</span>
+            <span>NTC & PTC</span>
+          </div>
+          <div class="thermScope-fact">
+            <span>Behavior</span>
+            <span>Non-ohmic</span>
+          </div>
+          <div class="thermScope-fact">
+            <span>Measured with</span>
+            <span>DMM (Resistance mode)</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No active logic required
+    })();
+  </script>
+</body>
+</html>
