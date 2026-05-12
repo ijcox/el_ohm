@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zener Diodes</title>
+<style>
+/* Unique scoped styles */
+.zenerx-wrapper {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.zenerx-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zenerx-header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.zenerx-symbol {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.zenerx-section {
+    margin-bottom: 45px;
+}
+
+.zenerx-section h2 {
+    font-size: 1.6em;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+.zenerx-bold {
+    font-weight: bold;
+}
+
+.zenerx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.zenerx-card {
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.zenerx-equation {
+    font-family: "Courier New", monospace;
+    font-size: 1.05em;
+    padding: 12px;
+    margin: 12px 0;
+    border-left: 4px solid #444;
+}
+
+.zenerx-diagram {
+    font-family: monospace;
+    white-space: pre;
+    margin: 15px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="zenerx-wrapper">
+
+    <div class="zenerx-header">
+        <h1>Zener Diodes</h1>
+        <div class="zenerx-symbol">Symbol: ➤|&lt;</div>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Overview</h2>
+        <p>
+            A <span class="zenerx-bold">Zener diode</span> is a special type of 
+            <a href="/o/page?o=word&w=Diodes">diode</a> designed to operate reliably 
+            in the reverse breakdown region. Unlike standard rectifier diodes, 
+            Zener diodes are intentionally used in reverse bias to regulate voltage.
+        </p>
+        <p>
+            They are widely used for voltage stabilization, reference generation, 
+            and circuit protection.
+        </p>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>How It Works</h2>
+        <p>
+            When reverse voltage applied across a Zener diode reaches a specific value 
+            known as the <span class="zenerx-bold">Zener voltage (V<sub>Z</sub>)</span>, 
+            the diode begins conducting in reverse direction without damage.
+        </p>
+
+        <div class="zenerx-diagram">
+Reverse Bias Region:
+
+Voltage ↑
+        |
+        |        Breakdown
+        |        ________
+        |       /
+        |______/____________
+              Vz
+        </div>
+
+        <p>
+            This controlled breakdown occurs due to the Zener effect (quantum tunneling) 
+            or avalanche breakdown, depending on the voltage rating.
+        </p>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Voltage Regulation Principle</h2>
+        <p>
+            Zener diodes maintain a nearly constant output voltage despite changes 
+            in input voltage or load current.
+        </p>
+
+        <div class="zenerx-equation">
+Vout ≈ VZ
+        </div>
+
+        <p>
+            A resistor is typically placed in series to limit current:
+        </p>
+
+        <div class="zenerx-equation">
+R = (Vin − VZ) / I
+        </div>
+
+        <p>
+            Although current is calculated using 
+            <a href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>, 
+            the diode itself is a 
+            <a href="/o/page?o=word&w=Non-Ohmic%20Devices">non-ohmic device</a>.
+        </p>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Key Electrical Characteristics</h2>
+        <ul>
+            <li><strong>Zener Voltage (V<sub>Z</sub>):</strong> Rated breakdown voltage</li>
+            <li><strong>Power Dissipation:</strong> Maximum power rating (P = V × I)</li>
+            <li><strong>Knee Current:</strong> Minimum current for stable regulation</li>
+            <li><strong>Dynamic Resistance:</strong> Small slope in breakdown region</li>
+        </ul>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Common Voltage Ratings</h2>
+        <div class="zenerx-grid">
+            <div class="zenerx-card">
+                <strong>3.3V</strong><br>
+                Logic-level protection
+            </div>
+            <div class="zenerx-card">
+                <strong>5.1V</strong><br>
+                Microcontroller circuits
+            </div>
+            <div class="zenerx-card">
+                <strong>12V</strong><br>
+                Automotive systems
+            </div>
+            <div class="zenerx-card">
+                <strong>24V</strong><br>
+                Industrial equipment
+            </div>
+        </div>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Applications</h2>
+        <ul>
+            <li>Voltage regulation in power supplies</li>
+            <li>Over-voltage protection</li>
+            <li>Reference voltage generation</li>
+            <li>Waveform clipping circuits</li>
+            <li>Surge suppression</li>
+        </ul>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Testing and Measurement</h2>
+        <p>
+            Zener diodes can be tested using a 
+            <a href="/o/page?o=word&w=Digital%20Multimeters">digital multimeter</a> 
+            in diode mode (forward direction) and with a regulated power supply 
+            to measure reverse breakdown voltage.
+        </p>
+        <p>
+            Measurements are expressed in 
+            <a href="/o/page?o=word&w=Volts">volts</a> for breakdown voltage and 
+            <a href="/o/page?o=word&w=Amperes">amperes</a> for current ratings.
+        </p>
+    </div>
+
+    <div class="zenerx-section">
+        <h2>Zener vs. Standard Diodes</h2>
+        <ul>
+            <li>Standard diodes are not designed for reverse breakdown operation.</li>
+            <li>Zener diodes are optimized for stable reverse conduction.</li>
+            <li>Rectifier diodes focus on AC to DC conversion.</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
