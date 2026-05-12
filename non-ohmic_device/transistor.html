@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transistor — Semiconductor Amplifier and Switch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All identifiers are prefixed with transistorScope-
+    to avoid style collisions when embedded.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --transistorScope-accent: #e67e22;
+      --transistorScope-accent-soft: rgba(230, 126, 34, 0.18);
+      --transistorScope-text-main: #222;
+      --transistorScope-text-muted: #555;
+      --transistorScope-border-soft: rgba(0,0,0,0.12);
+      --transistorScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .transistorScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--transistorScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .transistorScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--transistorScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .transistorScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .transistorScope-symbol {
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      font-weight: 800;
+    }
+
+    .transistorScope-lead {
+      font-size: 1.1rem;
+      color: var(--transistorScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .transistorScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .transistorScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .transistorScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .transistorScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--transistorScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .transistorScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .transistorScope-card {
+      background: var(--transistorScope-card-bg);
+      border: 1px solid var(--transistorScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .transistorScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 1.3rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--transistorScope-accent-soft),
+        transparent
+      );
+    }
+
+    .transistorScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .transistorScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .transistorScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .transistorScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--transistorScope-border-soft);
+    }
+
+    .transistorScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="transistorScope-wrapper">
+    <header class="transistorScope-header">
+      <div>
+        <div class="transistorScope-title">Transistor</div>
+        <div class="transistorScope-lead">
+          A <strong>transistor</strong> is a semiconductor device used to amplify or
+          switch electronic signals and electrical power. It is a fundamental building
+          block of modern electronic systems.
+        </div>
+      </div>
+      <div class="transistorScope-symbol">Q</div>
+    </header>
+
+    <main class="transistorScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="transistorScope-section">
+          <h2>Purpose and Function</h2>
+          <div class="transistorScope-card">
+            Transistors control the flow of current using a small input signal, enabling
+            signal amplification, digital logic, and power control.
+          </div>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Basic Operating Principle</h2>
+          <p>
+            A transistor uses semiconductor junctions to regulate current flow.
+            A small change at one terminal controls a much larger current between
+            the other terminals.
+          </p>
+          <p>
+            This behavior distinguishes transistors from passive components like
+            resistors and
+            <a class="transistorScope-link" href="/o/page?o=word&w=Diode">diodes</a>.
+          </p>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Main Types of Transistors</h2>
+
+          <h3>Bipolar Junction Transistor (BJT)</h3>
+          <p>
+            BJTs use both electrons and holes as charge carriers and have three terminals:
+            emitter, base, and collector.
+          </p>
+          <div class="transistorScope-equation">
+            I<sub>C</sub> ≈ β × I<sub>B</sub>
+          </div>
+
+          <h3>Field-Effect Transistor (FET)</h3>
+          <p>
+            FETs control current using an electric field. Common types include MOSFETs
+            and JFETs.
+          </p>
+          <p>
+            FETs are voltage-controlled devices with very high input impedance.
+          </p>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Operating Regions</h2>
+          <ul class="transistorScope-list">
+            <li><strong>Cutoff</strong> — transistor is off</li>
+            <li><strong>Active</strong> — amplification region</li>
+            <li><strong>Saturation</strong> — fully on (switching)</li>
+          </ul>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Transistors as Amplifiers</h2>
+          <p>
+            In amplification, a small input signal controls a larger output signal,
+            increasing voltage, current, or power.
+          </p>
+          <p>
+            Amplifier behavior is often analyzed using
+            <a class="transistorScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>
+            and small-signal models.
+          </p>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Transistors as Switches</h2>
+          <p>
+            When used as switches, transistors rapidly alternate between cutoff and
+            saturation states.
+          </p>
+          <p>
+            This switching capability forms the basis of digital logic and computing.
+          </p>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Applications</h2>
+          <ul class="transistorScope-list">
+            <li>Microprocessors and memory</li>
+            <li>Signal amplification</li>
+            <li>Power regulation</li>
+            <li>Motor control</li>
+            <li>Wireless communication</li>
+          </ul>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Historical Background</h2>
+          <p>
+            The transistor was invented in 1947 at Bell Labs, revolutionizing electronics
+            by replacing bulky and inefficient vacuum tubes.
+          </p>
+          <p>
+            Modern integrated circuits contain billions of transistors on a single chip.
+          </p>
+        </section>
+
+        <section class="transistorScope-section">
+          <h2>Testing and Measurement</h2>
+          <p>
+            Transistors are commonly tested using a
+            <a class="transistorScope-link" href="/o/page?o=word&w=Digital%20Multimeter">digital multimeter</a>,
+            curve tracer, or specialized semiconductor tester.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="transistorScope-card">
+          <h3>Quick Facts</h3>
+          <div class="transistorScope-fact">
+            <span>Device type</span>
+            <span>Semiconductor</span>
+          </div>
+          <div class="transistorScope-fact">
+            <span>Terminals</span>
+            <span>3 (or more)</span>
+          </div>
+          <div class="transistorScope-fact">
+            <span>Main uses</span>
+            <span>Amplification & switching</span>
+          </div>
+          <div class="transistorScope-fact">
+            <span>Key role</span>
+            <span>Modern electronics</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No active logic required
+    })();
+  </script>
+</body>
+</html>
