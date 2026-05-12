@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Multimeter — Measuring Electrical Quantities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All classes, IDs, and animations are prefixed with dmmScope-
+    to avoid clashing with existing embedded styles.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --dmmScope-accent: #4f8cff;
+      --dmmScope-accent-soft: rgba(79, 140, 255, 0.15);
+      --dmmScope-text-main: #222;
+      --dmmScope-text-muted: #555;
+      --dmmScope-border-soft: rgba(0,0,0,0.12);
+      --dmmScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .dmmScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--dmmScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .dmmScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--dmmScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dmmScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .dmmScope-symbol {
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      font-weight: 800;
+    }
+
+    .dmmScope-lead {
+      font-size: 1.1rem;
+      color: var(--dmmScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .dmmScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .dmmScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dmmScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .dmmScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--dmmScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .dmmScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .dmmScope-section p {
+      margin-bottom: 0.9rem;
+    }
+
+    .dmmScope-card {
+      background: var(--dmmScope-card-bg);
+      border: 1px solid var(--dmmScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .dmmScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1.3rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--dmmScope-accent-soft),
+        transparent
+      );
+    }
+
+    .dmmScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .dmmScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .dmmScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .dmmScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--dmmScope-border-soft);
+    }
+
+    .dmmScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dmmScope-wrapper">
+    <header class="dmmScope-header">
+      <div>
+        <div class="dmmScope-title">Digital Multimeter</div>
+        <div class="dmmScope-lead">
+          A <strong>digital multimeter (DMM)</strong> is a versatile electronic
+          measuring instrument used to measure multiple electrical quantities such as
+          voltage, current, and resistance in a single device.
+        </div>
+      </div>
+      <div class="dmmScope-symbol">DMM</div>
+    </header>
+
+    <main class="dmmScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="dmmScope-section">
+          <h2>Purpose and Overview</h2>
+          <div class="dmmScope-card">
+            Digital multimeters combine the functions of a voltmeter, ammeter, and
+            <a class="dmmScope-link" href="/o/page?o=word&w=Ohmmeter">ohmmeter</a>.
+            They are essential tools in electronics, electrical engineering,
+            maintenance, and troubleshooting.
+          </div>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Common Measurements</h2>
+          <ul class="dmmScope-list">
+            <li>
+              <strong>Voltage</strong> (AC and DC), measured in
+              <a class="dmmScope-link" href="/o/page?o=word&w=Volt">volts</a>
+            </li>
+            <li>
+              <strong>Current</strong> (AC and DC), measured in
+              <a class="dmmScope-link" href="/o/page?o=word&w=Ampere">amperes</a>
+            </li>
+            <li>
+              <strong>Resistance</strong>, measured in
+              <a class="dmmScope-link" href="/o/page?o=word&w=Ohm">ohms</a>
+            </li>
+          </ul>
+
+          <p>
+            Many modern digital multimeters also measure additional quantities such as
+            capacitance, frequency, duty cycle, and temperature.
+          </p>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>How a Digital Multimeter Works</h2>
+          <p>
+            A DMM converts analog electrical signals into digital values using an
+            internal analog-to-digital converter (ADC).
+          </p>
+          <p>
+            Internal circuitry scales and conditions the input signal before it is
+            displayed numerically on an LCD or LED screen.
+          </p>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Measurement Principles</h2>
+
+          <h3>Voltage Measurement</h3>
+          <p>
+            Voltage is measured by placing the probes in parallel with the circuit
+            component under test.
+          </p>
+
+          <h3>Current Measurement</h3>
+          <p>
+            Current measurement requires the meter to be placed in series with the
+            circuit, allowing current to flow through the meter.
+          </p>
+
+          <h3>Resistance Measurement</h3>
+          <p>
+            Resistance measurement uses an internal voltage source and applies
+            <a class="dmmScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>
+            to calculate resistance.
+          </p>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Auto-Ranging vs. Manual Ranging</h2>
+          <p>
+            <strong>Auto-ranging</strong> multimeters automatically select the
+            appropriate measurement range, simplifying operation.
+          </p>
+          <p>
+            <strong>Manual-ranging</strong> meters require the user to choose the
+            range but can offer faster response and greater control.
+          </p>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Accuracy and Resolution</h2>
+          <p>
+            A digital multimeter’s accuracy is specified as a percentage of the
+            reading plus a number of least significant digits.
+          </p>
+          <p>
+            Resolution refers to the smallest change the meter can display and is
+            often expressed in counts (e.g., 6000-count, 20,000-count meters).
+          </p>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Safety Ratings</h2>
+          <p>
+            Digital multimeters are classified by safety categories defined in
+            international standards.
+          </p>
+          <ul class="dmmScope-list">
+            <li>CAT I — electronic circuits</li>
+            <li>CAT II — appliances and portable tools</li>
+            <li>CAT III — distribution wiring</li>
+            <li>CAT IV — utility and service entrances</li>
+          </ul>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Limitations</h2>
+          <p>
+            While highly versatile, digital multimeters may not provide accurate
+            results when measuring
+            <a class="dmmScope-link" href="/o/page?o=word&w=Non-ohmic%20Device">non-ohmic devices</a>
+            without specialized modes or interpretation.
+          </p>
+        </section>
+
+        <section class="dmmScope-section">
+          <h2>Historical Development</h2>
+          <p>
+            Digital multimeters evolved from analog multimeters as digital electronics
+            and integrated circuits became widely available in the late 20th century.
+          </p>
+          <p>
+            Today, DMMs range from simple handheld units to laboratory-grade
+            instruments with computer connectivity.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="dmmScope-card">
+          <h3>Quick Reference</h3>
+          <div class="dmmScope-fact">
+            <span>Measures</span>
+            <span>V, I, Ω</span>
+          </div>
+          <div class="dmmScope-fact">
+            <span>Display</span>
+            <span>Digital</span>
+          </div>
+          <div class="dmmScope-fact">
+            <span>Common feature</span>
+            <span>Auto-ranging</span>
+          </div>
+          <div class="dmmScope-fact">
+            <span>Used in</span>
+            <span>Electronics & electrical work</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactive enhancements
+    (function () {
+      // No runtime behavior required
+    })();
+  </script>
+</body>
+</html>
