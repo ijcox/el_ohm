@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ampere — Unit of Electric Current</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    All identifiers are prefixed with ampScope-
+    to prevent style collisions when embedded.
+    Background color is intentionally NOT set.
+  -->
+
+  <style>
+    :root {
+      --ampScope-accent: #2ecc71;
+      --ampScope-accent-soft: rgba(46, 204, 113, 0.18);
+      --ampScope-text-main: #222;
+      --ampScope-text-muted: #555;
+      --ampScope-border-soft: rgba(0,0,0,0.12);
+      --ampScope-card-bg: rgba(255,255,255,0.85);
+    }
+
+    .ampScope-wrapper {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+      color: var(--ampScope-text-main);
+      line-height: 1.65;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .ampScope-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      border-bottom: 1px solid var(--ampScope-border-soft);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ampScope-title {
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .ampScope-symbol {
+      font-size: clamp(2.8rem, 5vw, 3.6rem);
+      font-weight: 800;
+    }
+
+    .ampScope-lead {
+      font-size: 1.1rem;
+      color: var(--ampScope-text-muted);
+      max-width: 900px;
+      margin-top: 0.8rem;
+    }
+
+    .ampScope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 950px) {
+      .ampScope-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ampScope-section {
+      margin-bottom: 3rem;
+    }
+
+    .ampScope-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.9rem;
+      border-left: 4px solid var(--ampScope-accent);
+      padding-left: 0.65rem;
+    }
+
+    .ampScope-section h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .ampScope-card {
+      background: var(--ampScope-card-bg);
+      border: 1px solid var(--ampScope-border-soft);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 1.6rem;
+    }
+
+    .ampScope-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 1.3rem 0;
+      padding: 1.1rem;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        var(--ampScope-accent-soft),
+        transparent
+      );
+    }
+
+    .ampScope-list {
+      padding-left: 1.2rem;
+    }
+
+    .ampScope-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    .ampScope-link {
+      text-decoration: underline;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .ampScope-fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--ampScope-border-soft);
+    }
+
+    .ampScope-fact:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ampScope-wrapper">
+    <header class="ampScope-header">
+      <div>
+        <div class="ampScope-title">Ampere</div>
+        <div class="ampScope-lead">
+          The <strong>ampere</strong> (symbol: <strong>A</strong>) is the SI unit of
+          electric current. It measures the rate at which electric charge flows through
+          a conductor.
+        </div>
+      </div>
+      <div class="ampScope-symbol">A</div>
+    </header>
+
+    <main class="ampScope-grid">
+      <!-- Main content -->
+      <div>
+        <section class="ampScope-section">
+          <h2>Definition</h2>
+          <div class="ampScope-card">
+            One ampere is defined as the flow of one coulomb of electric charge per
+            second.
+            <div class="ampScope-equation">
+              1&nbsp;A = 1&nbsp;C / 1&nbsp;s
+            </div>
+          </div>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>Physical Meaning</h2>
+          <p>
+            Electric current describes how quickly electric charges move through a
+            material.
+          </p>
+          <p>
+            While voltage provides the driving force, current represents the actual
+            movement of charge carriers such as electrons.
+          </p>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>Relation to Other Electrical Quantities</h2>
+          <p>
+            Current, voltage, and resistance are related through
+            <a class="ampScope-link" href="/o/page?o=word&w=Ohm's%20Law">Ohm's Law</a>.
+          </p>
+          <div class="ampScope-equation">
+            I = V / R
+          </div>
+          <p>
+            Where <strong>V</strong> is voltage in
+            <a class="ampScope-link" href="/o/page?o=word&w=Volt">volts</a>
+            and <strong>R</strong> is resistance in
+            <a class="ampScope-link" href="/o/page?o=word&w=Ohm">ohms</a>.
+          </p>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>Measurement</h2>
+          <p>
+            Current is measured using an ammeter or a
+            <a class="ampScope-link" href="/o/page?o=word&w=Digital%20Multimeter">digital multimeter</a>.
+          </p>
+          <p>
+            Unlike voltage measurement, current measurement requires the meter to be
+            placed in series with the circuit.
+          </p>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>AC and DC Current</h2>
+          <h3>Direct Current (DC)</h3>
+          <p>
+            DC current flows in a single direction and is typical of battery-powered
+            systems.
+          </p>
+
+          <h3>Alternating Current (AC)</h3>
+          <p>
+            AC current periodically reverses direction, commonly used in power
+            distribution systems.
+          </p>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>Typical Current Levels</h2>
+          <ul class="ampScope-list">
+            <li>Microamperes (µA) — sensors and low-power electronics</li>
+            <li>Milliamperes (mA) — small electronic devices</li>
+            <li>Amperes (A) — household appliances</li>
+            <li>Kiloamperes (kA) — industrial and power systems</li>
+          </ul>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>Historical Background</h2>
+          <p>
+            The ampere is named after <strong>André-Marie Ampère</strong>, a pioneer in
+            the study of electromagnetism.
+          </p>
+          <p>
+            The modern SI definition is based on fixed values of fundamental physical
+            constants.
+          </p>
+        </section>
+
+        <section class="ampScope-section">
+          <h2>Safety Considerations</h2>
+          <p>
+            High currents can generate heat, cause burns, or start fires.
+          </p>
+          <p>
+            Circuit protection devices such as fuses and circuit breakers limit current
+            to safe levels.
+          </p>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="ampScope-card">
+          <h3>Quick Facts</h3>
+          <div class="ampScope-fact">
+            <span>SI unit</span>
+            <span>Ampere (A)</span>
+          </div>
+          <div class="ampScope-fact">
+            <span>Measures</span>
+            <span>Electric current</span>
+          </div>
+          <div class="ampScope-fact">
+            <span>Named after</span>
+            <span>André-Marie Ampère</span>
+          </div>
+          <div class="ampScope-fact">
+            <span>Measured with</span>
+            <span>Ammeter / DMM</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Reserved for future interactivity
+    (function () {
+      // No active logic required
+    })();
+  </script>
+</body>
+</html>
